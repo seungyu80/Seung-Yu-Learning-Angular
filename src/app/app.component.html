@@ -1,29 +1,21 @@
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * Delete the template below * * * * * * * * * -->
-<!-- * * * * * * * to get started with your project! * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
-<style>
+<html>
+<head>
 
-</style>
-
-<main class="main">
+</head>
+<body>
   <h1>Hello, {{ title }}!</h1>
   <p>Congratulations! Your app is running. 🎉</p>
   <p>Your course is {{ course }} and section is {{ section }}</p>
-</main>
-
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
-
-<router-outlet />
+  <br>
+  <div class="container">
+    <h2>User List</h2>
+    <div *ngFor="let user of userList">
+      <h3>{{user.firstName}} {{user.lastName}}</h3>
+      <p>ID: {{user.userId}}</p>
+      <p>Phone Number: {{user.phoneNumber}}</p>
+      <p>Admin: {{user.isAdmin ? 'Yes' : 'No'}}</p>
+    </div>
+  </div>
+</body>
+</html>
