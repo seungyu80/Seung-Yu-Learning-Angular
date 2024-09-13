@@ -1,0 +1,34 @@
+.welcome {
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+  color: #8693da;
+  font-size: large;
+  margin-bottom: 20px;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f3e5d2;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.userTable {
+    border: 1px solid;
+    width: 90%;
+    text-align: center;
+}
+
+.tableHeader {
+  text-align: center;
+  vertical-align: top;
+}
+
+.tableContent {
+  text-align: center;
+}
