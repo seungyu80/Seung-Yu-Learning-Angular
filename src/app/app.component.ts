@@ -11,18 +11,22 @@ import {NgForOf} from "@angular/common";
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'Seung Yu';
-  course :string = 'Javascript Frameworks';
-  section :string = '001'
+  title :string = 'Massage Therapy CRM';
+  massageCourse :string = 'Thai Massage';
 
   titleAssignment2: string = 'User Generation';
-  //user1: User = {userId: 1, firstName: "Seung", lastName: "Yu", phoneNumber: "2261111000", isAdmin: true};
+  //user1: User = {userId: 1, firstName: "Seung", lastName: "Yu", phoneNumber: "2261111000", isBooking: true};
   userList: User[] = [
-    {userId: 1, firstName: "Seung", lastName: "Yu", phoneNumber: "2261111000", isAdmin: true},
-    {userId: 2, firstName: "Lebron ", lastName: "James", phoneNumber: "2261111001", isAdmin: false},
-    {userId: 3, firstName: "Stephen", lastName: "Curry", phoneNumber: "2261111002", isAdmin: false},
-    {userId: 4, firstName: "Kevin", lastName: "Durant", phoneNumber: "2261111003", isAdmin: false},
-    {userId: 5, firstName: "Shohei", lastName: "Ohtani", phoneNumber: "2261111004", isAdmin: false},
-    {userId: 6, firstName: "Mike", lastName: "Trout", phoneNumber: "2261111005", isAdmin: false}
+    {userId: 1, firstName: "Seung", lastName: "Yu", phoneNumber: "2261111000", isBooking: true},
+    {userId: 2, firstName: "Lebron ", lastName: "James", phoneNumber: "2261111001", isBooking: false},
+    {userId: 3, firstName: "Stephen", lastName: "Curry", phoneNumber: "2261111002", isBooking: false},
+    {userId: 4, firstName: "Kevin", lastName: "Durant", phoneNumber: "2261111003", isBooking: false},
+    {userId: 5, firstName: "Shohei", lastName: "Ohtani", phoneNumber: "2261111004", isBooking: false},
+    {userId: 6, firstName: "Mike", lastName: "Trout", phoneNumber: "2261111005", isBooking: false}
   ];
+
+  // toggle
+  toggleBookingStatus(user: User): void {
+    user.isBooking = !user.isBooking;
+  }
 }
