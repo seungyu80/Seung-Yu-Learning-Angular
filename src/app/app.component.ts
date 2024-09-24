@@ -2,11 +2,13 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {User} from "./models/user";
 import {NgForOf} from "@angular/common";
+import { CustomerListComponent } from "../customer-list/customer-list.component";
+import { CustomerListItemComponent } from "../customer-list-item/customer-list-item.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NgForOf],
+  imports: [RouterOutlet, NgForOf, CustomerListComponent, CustomerListItemComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
