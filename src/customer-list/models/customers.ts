@@ -5,4 +5,5 @@ export interface Customers {
   address: string;
   phoneNumber: string;
   isBooking?: boolean;
+  nationality: string;
 }

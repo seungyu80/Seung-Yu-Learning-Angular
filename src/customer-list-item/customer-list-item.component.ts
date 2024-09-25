@@ -8,12 +8,8 @@ import { Component, input, Input, OnInit } from '@angular/core';
   styleUrl: './customer-list-item.component.css'
 })
 export class CustomerListItemComponent implements OnInit {
-  customerID: number = 0;
-  firstName: string = '';
-  lastName: string = '';
-  address: string = '';
-  phoneNumber: string = '';
-  isBooking: boolean = false;
+  // In yourcontentListItem.component.ts, add a property that can be accepted as an input to the component.
+  pageTitle: string = "Massage Customer List";
 
   constructor() {
 
