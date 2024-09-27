@@ -1,0 +1,30 @@
+<!-- In your contentList.component.html, add 4 ContentListItem tags. 
+You'll update these tags to make them more useful later in this assignment. -->
+
+<!-- <app-customer-list-item></app-customer-list-item>
+<app-customer-list-item></app-customer-list-item>
+<app-customer-list-item></app-customer-list-item>
+<app-customer-list-item></app-customer-list-item> -->
+
+
+<div>
+    <table>
+        <thead>
+            <tr>
+                <td><b>Customer ID</b></td>
+                <td><b>Name</b></td>
+                <td><b>Phone Number</b></td>
+                <td><b>Booking</b></td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let customer of customerList" (click)="goToCustomerDetail(customer)">
+               <td>{{ customer.customerID }}</td>
+               <td>{{ customer.firstName }} {{customer.lastName}} </td>
+               <td>{{ customer.phoneNumber }}</td>
+               <td>{{ customer.isBooking ? 'Yes' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <app-customer-list-item [customer]="customerChoice"></app-customer-list-item>
+</div>

@@ -1,0 +1,24 @@
+table {
+    width: 100%;
+    margin: 20px 10px;
+    border-style: double;
+    /* border-radius: 5%; */
+  }
+
+  th, td {
+    border: 2px solid #000;
+    padding: 8px;
+    text-align: left;
+  }
+
+  thead td {
+    text-align: center;
+  }
+
+  tbody tr:nth-child(even) {
+    background-color: #e1edbe;
+  }
+
+  tbody tr:hover {
+    background-color: rgb(235, 195, 108);
+  }
