@@ -2,6 +2,8 @@ import { Component, Input, OnInit, Output } from '@angular/core';
 import { Customer } from "../models/customer";
 import { NgForOf } from '@angular/common';
 import { CustomerListItemComponent } from "../customer-list-item/customer-list-item.component";
+import { CustomerService } from '../services/customer.service';
+
 
 @Component({
   selector: 'app-customer-list',
@@ -11,7 +13,17 @@ import { CustomerListItemComponent } from "../customer-list-item/customer-list-i
   styleUrl: './customer-list.component.css'
 })
 
-export class CustomerListComponent {
+export class CustomerListComponent implements OnInit {
+  customerList: Customer[] = [];
+
+  constructor(private customerService: CustomerService) {
+    //this constructor is primarily used for dependency injection now
+    
+  }
+
+  ngOnInit(): void {
+    
+  }
   
   // customerList: Customer[] = [
   //   {customerID: 1, firstName: "Seung", lastName: "Yu", address: "1st Avenue", phoneNumber: "226-111-1111", isBooking: true, nationality: "Korea"},
@@ -26,9 +38,7 @@ export class CustomerListComponent {
     this.customerChoice = customer;
   }
 
-  // ngOnInit(): void {
-  //   this.createSubsList();    
-  // }
+  
 
   // createSubsList() {
   //   this.contentItem = this.customerList;
