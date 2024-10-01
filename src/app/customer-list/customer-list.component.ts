@@ -22,7 +22,13 @@ export class CustomerListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
+    // this.customerService.retrieveCustomers();
+    // console.log("CustomerListComponent Initalized with customers: ", this.customerList);
+    this.customerService.retrieveCustomers().subscribe({
+      next: (data: Customer[]) => this.customerList = data,
+      error:err => console.error("Error fetching Customers", err),
+      complete:() => console.log("customer data fetch complete!")
+    })
   }
   
   // customerList: Customer[] = [
