@@ -1,21 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { Customer } from './models/customer';
-import { NgForOf } from "@angular/common";
-import { CustomerListItemComponent } from './customer-list-item/customer-list-item.component';
+import {NgForOf} from "@angular/common";
 import { CustomerListComponent } from "./customer-list/customer-list.component";
-import { CustomerService } from './services/customer.service';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NgForOf, CustomerListComponent, CustomerListItemComponent],
+  imports: [RouterOutlet, NgForOf, CustomerListComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title :string = 'Massage Therapy CRM';
   massageCourse :string = 'Thai Massage';
+}
+
 
   // customer: Customer | undefined;
 
@@ -24,12 +23,12 @@ export class AppComponent implements OnInit {
     
   // }
 
-  ngOnInit(): void {
-      // const id = 1;
-      // if(id) {
-      //   this.customerService.retrieveCustomerById(Number(id)).subscribe(customer => {this.customer = customer})
-      // }
-  }
+  // ngOnInit(): void {
+  //     const id = 1;
+  //     if(id) {
+  //       this.customerService.retrieveCustomerById(Number(id)).subscribe(customer => {this.customer = customer})
+  //     }
+  // }
 
   // userList: User[] = [
   //   {userId: 1, firstName: "Seung", lastName: "Yu", phoneNumber: "2261111000", isBooking: true},

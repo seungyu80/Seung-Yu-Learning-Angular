@@ -14,7 +14,4 @@ export class CustomerListItemComponent {
   // In yourcontentListItem.component.ts, add a property that can be accepted as an input to the component.
   @Input() customer?: Customer;
 
-  // contentItem2?: CustomerListComponent;
-  // contentItem3?: CustomerListComponent;
-  // contentItem4?: CustomerListComponent;
 }
