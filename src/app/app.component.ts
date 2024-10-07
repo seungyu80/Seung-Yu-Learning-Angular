@@ -24,12 +24,12 @@ export class AppComponent implements OnInit {
     
   // }
 
-  // ngOnInit(): void {
-  //     const id = 1;
-  //     if(id) {
-  //       this.customerService.retrieveCustomerById(Number(id)).subscribe(customer => {this.customer = customer})
-  //     }
-  // }
+  ngOnInit(): void {
+      // const id = 1;
+      // if(id) {
+      //   this.customerService.retrieveCustomerById(Number(id)).subscribe(customer => {this.customer = customer})
+      // }
+  }
 
   // userList: User[] = [
   //   {userId: 1, firstName: "Seung", lastName: "Yu", phoneNumber: "2261111000", isBooking: true},
