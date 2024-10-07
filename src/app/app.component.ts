@@ -13,7 +13,7 @@ import { CustomerListComponent } from "./customer-list/customer-list.component";
 export class AppComponent {
   title :string = 'Massage Therapy CRM';
   massageCourse :string = 'Thai Massage';
-}
+
 
 
   // customer: Customer | undefined;
