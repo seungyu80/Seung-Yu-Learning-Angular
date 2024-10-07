@@ -18,6 +18,8 @@ You'll update these tags to make them more useful later in this assignment. -->
             </tr>
         </thead>
         <tbody>
+            <!-- <tr *ngFor="let customer of customerList" (click)="goToCustomerDetail(customer)"> -->
+            <!-- Use the service to retrieve an IContent item at an id number of your choosing -->
             <tr *ngFor="let customer of customerList" (click)="goToCustomerDetail(customer)">
                <td>{{ customer.customerID }}</td>
                <td>{{ customer.firstName }} {{customer.lastName}} </td>

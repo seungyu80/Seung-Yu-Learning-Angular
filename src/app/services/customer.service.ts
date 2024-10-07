@@ -27,6 +27,7 @@ export class CustomerService {
   retrieveCustomerById(customerID: number): Observable<Customer | undefined> {
     const customer = this.customers.find(customer => customer.customerID === customerID)
     return of(customer);
+    // return of(this.customers.find(customer => customer.customerID === customerID));
   }
   // Add
   addCustomer(addedCustomer: Customer): Observable<Customer[]> {
