@@ -47,4 +47,9 @@ export class CustomerService {
     this.customers = this.customers.filter(customer => customer.customerID);
     return of (this.customers);
   }
+  // New method to generate a new unique ID
+  generateNewCustomerId(): number {
+    return this.customers.length > 0 ? Math.max(...this.customers.map(customer => customer.customerID)) + 1 : 1;
+  }
+
 }

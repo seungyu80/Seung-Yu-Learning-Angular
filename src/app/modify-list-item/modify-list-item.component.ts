@@ -8,7 +8,11 @@ import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} fr
 @Component({
   selector: 'app-modify-list-item',
   standalone: true,
-  imports: [ NgIf ],
+  imports: [ 
+    NgIf,
+    FormsModule,
+    ReactiveFormsModule
+   ],
   templateUrl: './modify-list-item.component.html',
   styleUrl: './modify-list-item.component.css'
 })
@@ -16,6 +20,7 @@ import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} fr
 export class ModifyListItemComponent implements OnInit {
   customer: Customer | undefined;
   customerForm: FormGroup;
+  error: string | null = null;
 
   constructor(
     private fb: FormBuilder,
@@ -24,6 +29,8 @@ export class ModifyListItemComponent implements OnInit {
     private router: Router
   ){
     this.customerForm = this.fb.group({
+      
+
       customerID: ['', Validators.required], //ID is required
       firstName: ['', Validators.required],//First name is required
       lastName: ['', Validators.required],
@@ -35,9 +42,9 @@ export class ModifyListItemComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id');
-    if (id) {
-      this.customerService.retrieveCustomerById(+id).subscribe(customer => {
+    const customerID = this.route.snapshot.paramMap.get('customerID');
+    if (customerID) {
+      this.customerService.retrieveCustomerById(+customerID).subscribe(customer => {
         if(customer) {
           this.customer = customer;
 
@@ -46,5 +53,34 @@ export class ModifyListItemComponent implements OnInit {
       });
     }
   }
+
+  onSubmit(): void {
+    const custmer: Customer = this.customerForm.value;
+
+    // Check if we're updating an existing customer
+    if (custmer.customerID) {
+      this.customerService.updateCustomer(custmer);
+    } else {
+      // For adding a new customer, generate a new ID
+      const newCustomerId = this.customerService.generateNewCustomerId(); // This method will create a new ID
+      custmer.customerID = newCustomerId;
+      this.customerService.addCustomer(custmer);
+    }
+
+    this.router.navigate(['/customers']);
+  }
+
+  onDelete(): void {
+    const customerID = this.customerForm.get('customerID')?.value;
+    if (customerID) {
+      this.customerService.deleteCustomer(customerID);
+      this.router.navigate(['/customers']);
+    }
+  }
+
+  navigateToCustomerList(): void {
+    this.router.navigate(['/customers']);
+  }
+
 
 }

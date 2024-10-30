@@ -1,1 +1,55 @@
-<p>modify-list-item works!</p>
+<!-- modify-list-item.component.html
+This is built using Reactive Forms-->
+<form [formGroup]="customerForm" (ngSubmit)="onSubmit()">
+    <!-- ID Field -->
+    <div class="form-group">
+      <label for="customerID">customerID</label>
+      <input type="number" id="customerID" formControlName="customerID" />
+    </div>
+  
+    <!--first Name Field -->
+    <div class="form-group">
+      <label for="firstName">First Name</label>
+      <input type="text" id="firstName" formControlName="firstName" />
+    </div>
+  
+    <!--last name Field -->
+    <div class="form-group">
+      <label for="lastName">Last Name</label>
+      <input type="text" id="lastName" formControlName="lastName" />
+    </div>
+  
+    <!-- Address Field -->
+    <div class="form-group">
+      <label for="address">Address</label>
+      <input type="text" id="address" formControlName="address" />
+    </div>
+
+    <!-- PhoneNumber Field -->
+    <div class="form-group">
+        <label for="phoneNumber">Phone Number</label>
+        <input type="text" id="phoneNumber" formControlName="phoneNumber" />
+      </div>
+  
+    <!-- Is Admin Checkbox -->
+    <div class="form-group">
+      <label for="isBooking">Is Booking</label>
+      <input type="checkbox" id="isBooking" formControlName="isBooking" />
+    </div>
+
+    <!-- Nationality Field -->
+    <div class="form-group">
+        <label for="nationality">Nationality</label>
+        <input type="text" id="nationality" formControlName="nationality" />
+    </div>
+  
+    <!-- Submit Button (Add or Update) -->
+    <button type="submit">Submit</button>
+  
+    <!-- Delete Button (Always Displayed Now) -->
+    <button type="button" (click)="onDelete()">Delete</button>
+  
+    <!-- Back Button -->
+    <button type="button" (click)="navigateToCustomerList()">Back to List</button>
+  </form>
+  <div *ngIf="error" class="error">{{ error }}</div>
