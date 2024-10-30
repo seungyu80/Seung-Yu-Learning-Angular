@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import {NgForOf} from "@angular/common";
+import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
+import { Customer } from "./models/customer";
+import { JsonPipe, NgForOf } from "@angular/common";
 import { CustomerListComponent } from "./customer-list/customer-list.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NgForOf, CustomerListComponent],
+  imports: [RouterOutlet, NgForOf, JsonPipe, CustomerListComponent, RouterLink, RouterLinkActive],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

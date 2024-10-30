@@ -5,6 +5,7 @@
         <td><b>Customer ID</b></td>
         <td><b>Name</b></td>
         <td><b>Phone Number</b></td>
+        <td><b>Nationality</b></td>
         <td><b>Booking</b></td>
       </tr>
       </thead>
@@ -14,6 +15,7 @@
         <td>{{ customer.customerID }}</td>
         <td>{{ customer.firstName }} {{customer.lastName}} </td>
         <td>{{ customer.phoneNumber }}</td>
+        <td>{{ customer.nationality }}</td>
         <td>{{ customer.isBooking ? 'Yes' : 'No' }}</td>
       </tr>
       </tbody>
