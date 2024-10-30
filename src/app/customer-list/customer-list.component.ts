@@ -3,11 +3,12 @@ import { Customer } from '../models/customer';
 import { NgForOf } from '@angular/common';
 import { CustomerListItemComponent } from '../customer-list-item/customer-list-item.component';
 import { CustomerService } from '../services/customer.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-customer-list',
   standalone: true,
-  imports: [ NgForOf, CustomerListItemComponent],
+  imports: [ NgForOf, CustomerListItemComponent, RouterLink],
   templateUrl: './customer-list.component.html',
   styleUrl: './customer-list.component.css'
 })

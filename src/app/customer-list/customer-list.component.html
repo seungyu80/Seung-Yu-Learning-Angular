@@ -9,7 +9,8 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let customer of customerList" (click)="goToCustomerDetail(customer)">
+      <!-- <tr *ngFor="let customer of customerList" (click)="goToCustomerDetail(customer)"> -->
+      <tr *ngFor="let customer of customerList" [routerLink]="['/customers',customer.customerID ]">  
         <td>{{ customer.customerID }}</td>
         <td>{{ customer.firstName }} {{customer.lastName}} </td>
         <td>{{ customer.phoneNumber }}</td>
@@ -17,6 +18,6 @@
       </tr>
       </tbody>
     </table>
-    <app-customer-list-item [customer]="customerChoice"></app-customer-list-item>
+    <!-- <app-customer-list-item [customer]="customerChoice"></app-customer-list-item> -->
   </div>
   

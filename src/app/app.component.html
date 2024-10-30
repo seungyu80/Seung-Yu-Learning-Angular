@@ -3,45 +3,16 @@
   <title>Customer List</title>
 </head>
 <body>
-  <!-- <div class="welcome">
-    <h1>{{ title }}!</h1>
-    <p>Welcome to customer management page. 🎉</p>
-    <p>Below are {{ massageCourse }} Customers.</p>
+  <div class="nav-bar">
+    <nav>
+      <a routerLink="/customers" routerLinkActive="active">Customer List</a>
+      <a routerLink="/modify-customer" routerLinkActive="active">Modify Customer</a>
+    </nav>
   </div>
-  <div class="container">
-    <h2>Customer List</h2>
-    <div *ngFor="let user of userList" class="user-card">
-      <h3>{{ user.firstName }} {{ user.lastName }}</h3>
-      <p>User ID: {{ user.userId }}</p>
-      <p>Phone Number: {{ user.phoneNumber }}</p>
-      <p>Booking Status: {{ user.isBooking ? 'Yes' : 'No' }}</p>
-      <button (click)="toggleBookingStatus(user)" class="toggle-button">
-        Booking Status Change
-      </button>
-    </div> -->
-    <h1>{{ title }}</h1>
-    <h2>{{ massageCourse }}</h2>
+  
+  <h1>{{ title }}</h1>
+  <h2>{{ massageCourse }}</h2>
 
-    <app-customer-list></app-customer-list>
-    
-
-    <!-- <table class="userTable" cellpadding="2" cellspacing="2">
-      <tr class="tableHeader">
-        <td><b>User ID</b></td>
-        <td><b>Name</b></td>
-        <td><b>Phone Number</b></td>
-        <td><b>Admin(Yes/No)</b></td>
-      </tr>
-      <div *ngFor="let user of userList">
-        <tr class="tableContent">
-          <td>{{user.userId}}</td>
-          <td>{{user.firstName}} {{user.lastName}}</td>
-          <td>{{user.phoneNumber}}</td>
-          <td>{{user.isAdmin ? 'Yes' : 'No'}}</td>
-        </tr>
-      </div>
-    </table> -->
-
-  <!-- </div> -->
+  <router-outlet></router-outlet>
 </body>
 </html>

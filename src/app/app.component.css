@@ -62,3 +62,27 @@ h2 {
 .user-card p:last-child {
   margin-bottom: 0;
 }
+
+/* Style for the navigation bar */
+.nav-bar {
+  background-color: #f8f9fa; /* Light grey background */
+  padding: 10px 20px; /* Padding around the navbar */
+  border-bottom: 1px solid #dee2e6; /* Border for separation */
+}
+
+.nav-bar nav {
+  display: flex;
+  justify-content: center; /* Center the links */
+}
+
+.nav-bar a {
+  text-decoration: none; /* Remove underline from links */
+  color: #007bff; /* Blue color for links */
+  font-size: 18px; /* Font size for links */
+  margin: 0 15px; /* Space between links */
+}
+
+.nav-bar a.active {
+  font-weight: bold; /* Bold text for active link */
+  color: #0056b3; /* Darker blue for active link */
+}

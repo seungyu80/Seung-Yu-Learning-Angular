@@ -6,5 +6,9 @@
     <p>Phone Number: {{ customer.phoneNumber }}</p>
     <p>Nationality: {{ customer.nationality }}</p>
     <p>Booking Status: {{ customer.isBooking ? 'Yes' : 'No' }}</p>
+    <!-- Navigation buttons -->
+    <button (click)="goBackward()" [disabled]="currentIndex === 0">Previous</button>
+    <button (click)="goForward()" [disabled]="currentIndex === customerList.length - 1">Next</button>
+    <button (click)="goBack()">Back to Customer List</button>
   </div>
   
