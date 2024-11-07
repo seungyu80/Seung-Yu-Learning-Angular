@@ -21,3 +21,4 @@ bootstrapApplication(AppComponent, {
 }).then(r => console.log('Bootstrap successful'));
 // bootstrapApplication(AppComponent, appConfig)
 //   .catch((err) => console.error(err));
+  
