@@ -1,4 +1,4 @@
-import { Component, input, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { NgIf } from "@angular/common";
 import { Customer } from '../models/customer';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -15,22 +15,32 @@ export class CustomerListItemComponent implements OnInit {
   customer: Customer | undefined;
   customerList: Customer[] = [];
   currentIndex: number = 0;
+  error: string|null = null;
+  
 
-  constructor(private route: ActivatedRoute, private customerService: CustomerService, private router: Router) {}
+  constructor(
+    private route: ActivatedRoute, 
+    private customerService: CustomerService, 
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-      this.customerService.retrieveCustomers().subscribe(customers => {
-        this.customerList = customers;
-  
-        // Subscribe to paramMap changes to actually see the page changing
-        //If we dont do this, the URL will change but the view will not
-        this.route.paramMap.subscribe(params => {
-          const customerID = Number(params.get('customerID'));
-          if (customerID) {
-            this.currentIndex = this.customerList.findIndex(customer => customer.customerID === customerID);
-            this.customer = this.customerList[this.currentIndex];
-          }
-        });
+      this.customerService.retrieveCustomers().subscribe({
+        next: (customers: Customer[]) => {
+          this.customerList = customers;
+          this.error = null
+          this.route.paramMap.subscribe(params => {
+            const customerID = Number(params.get('customerID'));
+            if(customerID) {
+              this.currentIndex = this.customerList.findIndex(customer => customer.customerID === customerID);
+              this.customer = this.customerList[this.currentIndex];
+            }
+          });
+        },
+        error: (err) => {
+          this.error = 'Error fetching customers';
+          console.error('Error fetching customers', err);
+        }
       });
     }
 

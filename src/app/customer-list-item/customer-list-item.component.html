@@ -11,4 +11,5 @@
     <button (click)="goForward()" [disabled]="currentIndex === customerList.length - 1">Next</button>
     <button (click)="goBack()">Back to Customer List</button>
   </div>
+  <div *ngIf="error" class="error">{{ error }}</div>
   

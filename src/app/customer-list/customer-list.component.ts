@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Customer } from '../models/customer';
-import { NgForOf } from '@angular/common';
+import { NgForOf, NgIf } from '@angular/common';
 import { CustomerListItemComponent } from '../customer-list-item/customer-list-item.component';
 import { CustomerService } from '../services/customer.service';
 import { RouterLink } from '@angular/router';
@@ -8,13 +8,17 @@ import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-customer-list',
   standalone: true,
-  imports: [ NgForOf, CustomerListItemComponent, RouterLink],
+  imports: [ NgForOf, CustomerListItemComponent, RouterLink, NgIf],
   templateUrl: './customer-list.component.html',
   styleUrl: './customer-list.component.css'
 })
 
 export class CustomerListComponent implements OnInit {
+
   customerList: Customer[] = [];
+  error: string | null = null;
+  
+  
 
   constructor(private customerService: CustomerService) {
     //this constructor is primarily used for dependency injection now
@@ -24,15 +28,21 @@ export class CustomerListComponent implements OnInit {
     // this.customerService.retrieveCustomers();
     // console.log("CustomerListComponent Initalized with customers: ", this.customerList);
     this.customerService.retrieveCustomers().subscribe({
-      next: (data: Customer[]) => this.customerList = data,
-      error:err => console.error("Error fetching Customers", err),
+      next: (data: Customer[]) => {
+        this.customerList = data;
+        this.error = null;
+      }, 
+      error:err => {
+        this.error = 'Error fetching customers';
+        console.error("Error fetching Customers", err)
+      }, 
       complete:() => console.log("customer data fetch complete!")
     })
   }
 
   // onClick event for detail
-  customerChoice?: Customer;
-  goToCustomerDetail(customer: Customer): void {
-    this.customerChoice = customer;
+  selectedCustomer?: Customer;
+  selectCustomer(customer: Customer): void {
+    this.selectedCustomer = customer;
   }
 }
