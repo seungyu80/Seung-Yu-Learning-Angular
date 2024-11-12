@@ -60,7 +60,7 @@ export class ModifyListItemComponent implements OnInit {
 
   onSubmit(): void {
     if(this.customerForm.valid) {
-      const customer: Customer = this.customerForm.valid;
+      const customer: Customer = this.customerForm.value;
 
       if(customer.customerID) {
         this.customerService.updateCustomer(customer).subscribe(() => this.router.navigate(['/customers']));

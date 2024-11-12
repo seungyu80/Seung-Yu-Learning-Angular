@@ -29,14 +29,14 @@ export class CustomerService {
   // A method that accepts a number and returns the IContent item in the array that contains the same id as the number parameter
   retrieveCustomerById(customerID: number): Observable<Customer> {
     // return of(this.customers.find(customer => customer.customerID === customerID));
-    return this.http.get<Customer>(`${this.apiUrl}/${id}`).pipe(catchError(this.handleError));
+    return this.http.get<Customer>(`${this.apiUrl}/${customerID}`).pipe(catchError(this.handleError));
   }
   // Add
   addCustomer(customer: Customer): Observable<Customer> {
     // this.customers.push(customer);
     // return of(customer);
     customer.customerID = this.generateNewCustomerId();
-    return this.http.post<User>(this.apiUrl, customer).pipe(catchError(this.handleError));
+    return this.http.post<Customer>(this.apiUrl, customer).pipe(catchError(this.handleError));
   }
 
   // Update

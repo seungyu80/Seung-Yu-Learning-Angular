@@ -6,19 +6,27 @@ import { CustomerListComponent } from './app/customer-list/customer-list.compone
 import { CustomerListItemComponent } from './app/customer-list-item/customer-list-item.component';
 import { ModifyListItemComponent } from './app/modify-list-item/modify-list-item.component';
 import { PageNotFoundComponent } from './app/page-not-found/page-not-found.component';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './app/services/in-memory-data.service';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { importProvidersFrom } from '@angular/core';
 
 const routes: Routes = [
   // Default route
   {path: '', redirectTo: '/customers', pathMatch: 'full'},
   {path: 'customers', component: CustomerListComponent},
-  {path: 'customers/:id', component: CustomerListItemComponent},
+  {path: 'customers/:customerID', component: CustomerListItemComponent},
   {path: 'modify-customer', component: ModifyListItemComponent},
   {path: '**', component: PageNotFoundComponent} // Wildcard route for a 404 page
 ];
 
 bootstrapApplication(AppComponent, {
-  providers: [provideRouter(routes)]
-}).then(r => console.log('Bootstrap successful'));
+  providers: [
+    provideHttpClient(),
+    provideRouter(routes),
+    importProvidersFrom(HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { delay: 1000}))
+  ],
+}).catch((err) => console.error(err));
 // bootstrapApplication(AppComponent, appConfig)
 //   .catch((err) => console.error(err));
   
