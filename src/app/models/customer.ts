@@ -6,4 +6,5 @@ export interface Customer {
     phoneNumber: string;
     isBooking?: boolean;
     nationality: string;
+    courseFee: number;
 }

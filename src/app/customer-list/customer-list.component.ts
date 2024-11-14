@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { Customer } from '../models/customer';
-import { NgForOf, NgIf } from '@angular/common';
+import { NgForOf, NgIf, CurrencyPipe, UpperCasePipe, LowerCasePipe } from '@angular/common';
 import { CustomerListItemComponent } from '../customer-list-item/customer-list-item.component';
 import { CustomerService } from '../services/customer.service';
 import { RouterLink } from '@angular/router';
 
+
 @Component({
   selector: 'app-customer-list',
   standalone: true,
-  imports: [ NgForOf, CustomerListItemComponent, RouterLink, NgIf],
+  imports: [ NgForOf, CustomerListItemComponent, RouterLink, NgIf, CurrencyPipe, UpperCasePipe, LowerCasePipe],
   templateUrl: './customer-list.component.html',
   styleUrl: './customer-list.component.css'
 })

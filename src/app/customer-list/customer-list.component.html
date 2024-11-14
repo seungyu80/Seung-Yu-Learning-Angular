@@ -8,6 +8,7 @@
         <td><b>Phone Number</b></td>
         <td><b>Nationality</b></td>
         <td><b>Booking</b></td>
+        <td><b>Fee</b></td>
       </tr>
       </thead>
       <tbody>
@@ -16,8 +17,9 @@
         <td>{{ customer.customerID }}</td>
         <td>{{ customer.firstName }} {{customer.lastName}} </td>
         <td>{{ customer.phoneNumber }}</td>
-        <td>{{ customer.nationality }}</td>
-        <td>{{ customer.isBooking ? 'Yes' : 'No' }}</td>
+        <td>{{ customer.nationality | lowercase }}</td>
+        <td>{{ customer.isBooking ? 'Yes' : 'No' | uppercase}}</td>
+        <td>{{customer.courseFee | currency: 'CAD': "symbol-narrow"}}</td>
       </tr>
       </tbody>
     </table>

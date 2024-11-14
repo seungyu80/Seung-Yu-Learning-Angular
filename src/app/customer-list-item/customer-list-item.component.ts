@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { NgIf } from "@angular/common";
+import { NgIf, CurrencyPipe, UpperCasePipe, LowerCasePipe } from "@angular/common";
 import { Customer } from '../models/customer';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CustomerService } from '../services/customer.service';
@@ -7,7 +7,7 @@ import { CustomerService } from '../services/customer.service';
 @Component({
   selector: 'app-customer-list-item',
   standalone: true,
-  imports: [ NgIf ],
+  imports: [ NgIf, CurrencyPipe, LowerCasePipe, UpperCasePipe ],
   templateUrl: './customer-list-item.component.html',
   styleUrl: './customer-list-item.component.css'
 })
