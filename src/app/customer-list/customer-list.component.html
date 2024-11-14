@@ -15,7 +15,7 @@
       <!-- <tr *ngFor="let customer of customerList" (click)="goToCustomerDetail(customer)"> -->
       <tr *ngFor="let customer of customerList" [routerLink]="['/customers',customer.customerID ]">  
         <td>{{ customer.customerID }}</td>
-        <td>{{ customer.firstName }} {{customer.lastName}} </td>
+        <td>{{ customer | fullName }} </td>
         <td>{{ customer.phoneNumber }}</td>
         <td>{{ customer.nationality | lowercase }}</td>
         <td>{{ customer.isBooking ? 'Yes' : 'No' | uppercase}}</td>
