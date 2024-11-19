@@ -6,5 +6,7 @@ export interface Customer {
     phoneNumber: string;
     isBooking?: boolean;
     nationality: string;
-    courseFee: number;
+    credit: number;
+    courseList: string[];
+    courseFees: number[];
 }

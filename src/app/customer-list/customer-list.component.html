@@ -13,7 +13,7 @@
       </thead>
       <tbody>
       <!-- <tr *ngFor="let customer of customerList" (click)="goToCustomerDetail(customer)"> -->
-      <tr *ngFor="let customer of customerList" [routerLink]="['/customers',customer.customerID ]">  
+      <tr *ngFor="let customer of customerList" [routerLink]="['/customers',customer.customerID ] " [appHoverHighlight]="'orange'">  
         <td>{{ customer.customerID }}</td>
         <td>{{ customer | fullName }} </td>
         <td>{{ customer.phoneNumber }}</td>

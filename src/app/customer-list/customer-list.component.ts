@@ -5,12 +5,13 @@ import { CustomerListItemComponent } from '../customer-list-item/customer-list-i
 import { CustomerService } from '../services/customer.service';
 import { RouterLink } from '@angular/router';
 import { FullNamePipe } from '../pipes/full-name.pipe';
+import {HoverHighlightDirective} from "../directives/hover-highlight.directive";
 
 
 @Component({
   selector: 'app-customer-list',
   standalone: true,
-  imports: [ NgForOf, CustomerListItemComponent, RouterLink, NgIf, CurrencyPipe, UpperCasePipe, LowerCasePipe, FullNamePipe],
+  imports: [ NgForOf, CustomerListItemComponent, RouterLink, NgIf, CurrencyPipe, UpperCasePipe, LowerCasePipe, FullNamePipe, HoverHighlightDirective],
   templateUrl: './customer-list.component.html',
   styleUrl: './customer-list.component.css'
 })
