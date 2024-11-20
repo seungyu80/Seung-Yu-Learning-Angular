@@ -1,6 +1,6 @@
 <!-- modify-list-item.component.html
 This is built using Reactive Forms-->
-<form [formGroup]="customerForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="customerForm" (ngSubmit)="onSubmit()" >
     <!-- ID Field -->
     <div class="form-group">
       <label for="customerID">customerID</label>
@@ -10,7 +10,7 @@ This is built using Reactive Forms-->
     <!--first Name Field -->
     <div class="form-group">
       <label for="firstName">First Name</label>
-      <input type="text" id="firstName" formControlName="firstName" />
+      <input type="text" id="firstName" formControlName="firstName" appAutoFocus/>
     </div>
   
     <!--last name Field -->

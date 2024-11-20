@@ -4,6 +4,7 @@ import { CustomerService } from '../services/customer.service';
 import {ActivatedRoute, Router} from "@angular/router";
 import {NgIf} from "@angular/common";
 import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
+import { HighlightOnFocusDirective } from '../directives/highlight-on-focus.directive';
 
 @Component({
   selector: 'app-modify-list-item',
@@ -11,7 +12,8 @@ import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} fr
   imports: [ 
     NgIf,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HighlightOnFocusDirective
    ],
   templateUrl: './modify-list-item.component.html',
   styleUrl: './modify-list-item.component.css'

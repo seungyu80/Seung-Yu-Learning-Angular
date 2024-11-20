@@ -18,7 +18,7 @@
       </thead>
       <tbody> <!--Put the highlight directive on it for funsies
         student-detail.component.html-->
-        <tr *ngFor="let courseName of customer.courseList; let i = index" [appHoverHighlight]="'orange'" >
+        <tr *ngFor="let courseName of customer.courseList; let i = index" [appHoverHighlight]="'orange'" [appTextColour]="customer.courseFees[i]" >
           <td>{{ courseName }}</td>
           <!-- Passing the grade to the directive to determine the color -->
           <td >{{ customer.courseFees[i] }}</td>

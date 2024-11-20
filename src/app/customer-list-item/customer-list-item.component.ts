@@ -4,11 +4,12 @@ import { Customer } from '../models/customer';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CustomerService } from '../services/customer.service';
 import {HoverHighlightDirective} from "../directives/hover-highlight.directive";
+import {TextColourDirective} from "../directives/text-colour.directive";
 
 @Component({
   selector: 'app-customer-list-item',
   standalone: true,
-  imports: [ NgIf, CurrencyPipe, LowerCasePipe, UpperCasePipe, HoverHighlightDirective],
+  imports: [ NgIf, CurrencyPipe, LowerCasePipe, UpperCasePipe, HoverHighlightDirective, TextColourDirective],
   templateUrl: './customer-list-item.component.html',
   styleUrl: './customer-list-item.component.css'
 })
