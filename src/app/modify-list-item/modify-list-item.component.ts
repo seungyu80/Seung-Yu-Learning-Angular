@@ -5,6 +5,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {NgIf} from "@angular/common";
 import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
 import { HighlightOnFocusDirective } from '../directives/highlight-on-focus.directive';
+import {DisableButtonDirective} from "../directives/disable-button.directive";
 
 @Component({
   selector: 'app-modify-list-item',
@@ -13,7 +14,8 @@ import { HighlightOnFocusDirective } from '../directives/highlight-on-focus.dire
     NgIf,
     FormsModule,
     ReactiveFormsModule,
-    HighlightOnFocusDirective
+    HighlightOnFocusDirective,
+    DisableButtonDirective
    ],
   templateUrl: './modify-list-item.component.html',
   styleUrl: './modify-list-item.component.css'

@@ -44,7 +44,7 @@ This is built using Reactive Forms-->
     </div>
   
     <!-- Submit Button (Add or Update) -->
-    <button type="submit">Submit</button>
+    <button type="submit" [appDisableButton]="customerForm">Submit</button>
   
     <!-- Delete Button (Always Displayed Now) -->
     <button type="button" (click)="onDelete()">Delete</button>
