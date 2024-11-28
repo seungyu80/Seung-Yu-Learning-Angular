@@ -1,15 +1,45 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { NgIf, CurrencyPipe, UpperCasePipe, LowerCasePipe } from "@angular/common";
 import { Customer } from '../models/customer';
+import { NgIf, CurrencyPipe, UpperCasePipe, LowerCasePipe } from "@angular/common";
 import { ActivatedRoute, Router } from '@angular/router';
 import { CustomerService } from '../services/customer.service';
 import {HoverHighlightDirective} from "../directives/hover-highlight.directive";
 import {TextColourDirective} from "../directives/text-colour.directive";
 
+import {MatCard, MatCardContent, MatCardHeader, MatCardModule} from "@angular/material/card";
+import {
+  MatCell,
+  MatCellDef,
+  MatColumnDef,
+  MatHeaderCell,
+  MatHeaderCellDef,
+  MatHeaderRow, MatHeaderRowDef, MatRow, MatRowDef,
+  MatTable
+} from "@angular/material/table";
+import {MatButton} from "@angular/material/button";
+import {MatIconModule} from "@angular/material/icon";
+
 @Component({
   selector: 'app-customer-list-item',
   standalone: true,
-  imports: [ NgIf, CurrencyPipe, LowerCasePipe, UpperCasePipe, HoverHighlightDirective, TextColourDirective],
+  imports: [ NgIf, CurrencyPipe, LowerCasePipe, UpperCasePipe, HoverHighlightDirective, TextColourDirective,
+    MatCard,
+    MatCardHeader,
+    MatCardContent,
+    MatTable,
+    MatColumnDef,
+    MatHeaderCell,
+    MatHeaderCellDef,
+    MatCellDef,
+    MatCell,
+    MatHeaderRow,
+    MatHeaderRowDef,
+    MatRowDef,
+    MatRow,
+    MatButton,
+    MatCardModule, //
+    MatIconModule
+  ],
   templateUrl: './customer-list-item.component.html',
   styleUrl: './customer-list-item.component.css'
 })
@@ -18,7 +48,7 @@ export class CustomerListItemComponent implements OnInit {
   customerList: Customer[] = [];
   currentIndex: number = 0;
   error: string|null = null;
-  
+  displayedColumns: string[] = ['courseName', 'courseFees']; //Define column names for mat tabkle HERE
 
   constructor(
     private route: ActivatedRoute, 
@@ -31,6 +61,7 @@ export class CustomerListItemComponent implements OnInit {
         next: (customers: Customer[]) => {
           this.customerList = customers;
           this.error = null
+
           this.route.paramMap.subscribe(params => {
             const customerID = Number(params.get('customerID'));
             if(customerID) {

@@ -1,24 +1,23 @@
-table {
-    width: 100%;
-    margin: 20px 10px;
-    border-style: double;
-    /* border-radius: 5%; */
-  }
+.mat-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
 
-  th, td {
-    border: 2px solid #000;
-    padding: 8px;
-    text-align: left;
-  }
+.mat-elevation-z8 {
+  margin-top: 1rem;
+  border-radius: 8px;
+}
 
-  thead td {
-    text-align: center;
-  }
+.mat-header-cell {
+  font-weight: bold;
+}
 
-  tbody tr:nth-child(even) {
-    background-color: #e1edbe;
-  }
+.mat-row {
+  cursor: pointer;
+}
 
-  tbody tr:hover {
-    background-color: rgb(235, 195, 108);
-  }
+.mat-error {
+  color: red;
+  font-weight: bold;
+}

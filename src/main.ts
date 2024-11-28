@@ -1,15 +1,17 @@
 import { bootstrapApplication } from '@angular/platform-browser';
 import { provideRouter, Routes } from '@angular/router';
-import { appConfig } from './app/app.config';
+
 import { AppComponent } from './app/app.component';
-import { CustomerListComponent } from './app/customer-list/customer-list.component';
-import { CustomerListItemComponent } from './app/customer-list-item/customer-list-item.component';
-import { ModifyListItemComponent } from './app/modify-list-item/modify-list-item.component';
-import { PageNotFoundComponent } from './app/page-not-found/page-not-found.component';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './app/services/in-memory-data.service';
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { provideHttpClient } from '@angular/common/http';
 import { importProvidersFrom } from '@angular/core';
+
+import { CustomerListComponent } from './app/customer-list/customer-list.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { MatTableModule } from "@angular/material/table";
+import { MatButtonModule } from "@angular/material/button";
+import { MatIconModule } from "@angular/material/icon";
 
 const routes: Routes = [
   // Default route
@@ -28,7 +30,11 @@ bootstrapApplication(AppComponent, {
   providers: [
     provideHttpClient(),
     provideRouter(routes),
-    importProvidersFrom(HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { delay: 100}))
+    importProvidersFrom(HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { delay: 100})),
+    provideAnimationsAsync(), // Import providers dynamically
+    MatTableModule,
+    MatButtonModule,
+    MatIconModule
   ],
 }).catch((err) => console.error(err));
 // bootstrapApplication(AppComponent, appConfig)

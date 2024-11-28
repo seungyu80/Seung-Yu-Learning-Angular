@@ -86,3 +86,21 @@ h2 {
   font-weight: bold; /* Bold text for active link */
   color: #0056b3; /* Darker blue for active link */
 }
+
+
+/* Style for the main container */
+.app-container {
+  padding: 20px; /* Padding around the main content */
+  max-width: 800px; /* Max width for the content area */
+  margin: 20px auto; /* Center the content */
+  background-color: #ffffff; /* White background */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Light shadow for a lifted effect */
+  border-radius: 8px; /* Rounded corners */
+}
+
+/* Style for the title */
+.app-container h1 {
+  font-size: 24px; /* Font size for the title */
+  color: #343a40; /* Dark color for the title text */
+  text-align: center; /* Center the title text */
+}

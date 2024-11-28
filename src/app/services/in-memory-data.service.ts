@@ -1,12 +1,12 @@
 
-import { Injectable } from '@angular/core';
+// import { Injectable } from '@angular/core';
 import { InMemoryDbService, RequestInfo } from 'angular-in-memory-web-api';
 import { Customer } from '../models/customer';
 import { Observable } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root'
-})
+// @Injectable({
+//   providedIn: 'root'
+// })
 export class InMemoryDataService implements InMemoryDbService {
   createDb():{customers: Customer[]} {
     const customers: Customer[] = [
@@ -60,6 +60,41 @@ export class InMemoryDataService implements InMemoryDbService {
         courseFees: [100, 110, 120]
       }  
     ];
-    return {customers}
+
+
+    //function to generate additional customers based on existing ones
+    const generateAdditionalCustomers = (count: number, baseCustomers: Customer[]): Customer[] => {
+      let customers: Customer[] = [];
+      let customerID = baseCustomers.length + 1; // Start with the next id number
+      const nationalities = ["Korea", "USA", "Japan"];
+      const courseLists = [
+        ["Basic Massage", "Regular Massage", "Luxury Massage"],
+        ["Regular Massage", "Luxury Massage"]
+      ];
+
+      for (let i = 0; i < count; i++) {
+        const randomBaseCustomer = baseCustomers[i % baseCustomers.length]; // Recycle the base users names
+        const newCustomer: Customer = {
+          customerID: customerID++, // Increment the id for each new user
+          firstName: `${randomBaseCustomer.firstName} `,
+          lastName: `${randomBaseCustomer.lastName}`,
+          address: `${randomBaseCustomer.address}`,
+          phoneNumber: `${randomBaseCustomer.phoneNumber}`,
+          isBooking: i % 2 === 0, // Alt between admin and non-admin
+          nationality: nationalities[i % nationalities.length], // Assign a random department
+          credit: Math.floor(Math.random() * 100000000 + 1000), //Random budget between 1000 and 100 000 000
+          courseList: courseLists[i % courseLists.length], //asssign a random class list
+          courseFees: Array.from({ length: 5 }, () => Math.floor(Math.random() * 100)), // Random grades between 0 and 100
+          
+        };
+        customers.push(newCustomer);
+      }
+      return customers;
+    };
+
+    //Chhange this number to any number > 30 for more students      ↓↓↓
+    const allCustomers = [...customers, ...generateAdditionalCustomers(4 - customers.length, customers)];
+
+    return { customers: allCustomers };
   }
 }

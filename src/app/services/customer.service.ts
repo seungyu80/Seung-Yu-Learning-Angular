@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
+import { customerList } from '../data/mock-content';
 import { Observable, of, catchError, throwError } from 'rxjs';
 import { Customer } from '../models/customer';
-import { customerList } from '../data/mock-content';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 @Injectable({

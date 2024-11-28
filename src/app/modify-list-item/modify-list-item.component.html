@@ -1,55 +1,108 @@
 <!-- modify-list-item.component.html
 This is built using Reactive Forms-->
 <form [formGroup]="customerForm" (ngSubmit)="onSubmit()" >
-    <!-- ID Field -->
+  <!-- ID Field -->
+  <mat-form-field appearance="outline" class="form-field" disabled>
+    <mat-label>Customer ID</mat-label>
+    <input matInput type="number" formControlName="customerID" />
+  </mat-form-field>
+
+  <!-- First Name Field -->
+  <mat-form-field appearance="outline" class="form-field">
+    <mat-label>First Name</mat-label>
+    <input matInput type="text" formControlName="firstName" appAutoFocus />
+  </mat-form-field>
+    
+  <!-- Last Name Field -->
+  <mat-form-field appearance="outline" class="form-field">
+    <mat-label>Last Name</mat-label>
+    <input matInput type="text" formControlName="lastName" />
+  </mat-form-field>
+    
+  <!-- Address Field -->
+  <mat-form-field appearance="outline" class="form-field">
+    <mat-label>Address</mat-label>
+    <input matInput type="text" formControlName="address" />
+  </mat-form-field>
+
+  <!-- Phone Field -->
+  <mat-form-field appearance="outline" class="form-field">
+    <mat-label>Phone Number</mat-label>
+    <input matInput type="text" formControlName="phoneNumber" />
+  </mat-form-field>
+
+  <!-- Is Booking Checkbox -->
+  <mat-checkbox formControlName="isBooking" class="checkbox">Is Booking</mat-checkbox>
+
+  <!-- Nationality Field -->
+  <mat-form-field appearance="outline" class="form-field">
+    <mat-label>Nationality</mat-label>
+    <input matInput type="text" formControlName="nationality" />
+  </mat-form-field>
+
+  <!-- Buttons -->
+  <div class="button-group">
+    <button mat-raised-button color="primary" type="submit" [appDisableButton]="customerForm">Submit</button>
+    <button mat-raised-button color="warn" type="button" (click)="onDelete()">Delete</button>
+    <button mat-button type="button" (click)="navigateToCustomerList()">Back to List</button>
+  </div>
+
+  <!-- Error Message -->
+  <div *ngIf="error" class="error mat-error">{{ error }}</div>
+
+
+<!--
+    
     <div class="form-group">
       <label for="customerID">customerID</label>
       <input type="number" id="customerID" formControlName="customerID" />
     </div>
   
-    <!--first Name Field -->
+    
     <div class="form-group">
       <label for="firstName">First Name</label>
       <input type="text" id="firstName" formControlName="firstName" appAutoFocus/>
     </div>
   
-    <!--last name Field -->
+    
     <div class="form-group">
       <label for="lastName">Last Name</label>
       <input type="text" id="lastName" formControlName="lastName" />
     </div>
   
-    <!-- Address Field -->
+    
     <div class="form-group">
       <label for="address">Address</label>
       <input type="text" id="address" formControlName="address" />
     </div>
 
-    <!-- PhoneNumber Field -->
+    
     <div class="form-group">
         <label for="phoneNumber">Phone Number</label>
         <input type="text" id="phoneNumber" formControlName="phoneNumber" />
       </div>
   
-    <!-- Is Admin Checkbox -->
+    
     <div class="form-group">
       <label for="isBooking">Is Booking</label>
       <input type="checkbox" id="isBooking" formControlName="isBooking" />
     </div>
 
-    <!-- Nationality Field -->
+    
     <div class="form-group">
         <label for="nationality">Nationality</label>
         <input type="text" id="nationality" formControlName="nationality" />
     </div>
   
-    <!-- Submit Button (Add or Update) -->
+    
     <button type="submit" [appDisableButton]="customerForm">Submit</button>
   
-    <!-- Delete Button (Always Displayed Now) -->
+    
     <button type="button" (click)="onDelete()">Delete</button>
   
-    <!-- Back Button -->
+    
     <button type="button" (click)="navigateToCustomerList()">Back to List</button>
+    <div *ngIf="error" class="error">{{ error }}</div>
+  -->
+
   </form>
-  <div *ngIf="error" class="error">{{ error }}</div>

@@ -1,18 +1,28 @@
-<html>
-<head>
-  <title>Customer List</title>
-</head>
-<body>
+
+  <!--
   <div class="nav-bar">
     <nav>
       <a routerLink="/customers" routerLinkActive="active">Customer List</a>
       <a routerLink="/modify-customer" routerLinkActive="active">Modify Customer</a>
     </nav>
   </div>
-  
-  <h1>{{ title }}</h1>
-  <h2>{{ massageCourse }}</h2>
+-->
 
-  <router-outlet></router-outlet>
+
+  <!-- New method app.component.html-->
+  <mat-toolbar color="primary">
+    <span>Student Management System</span>
+    <span class="spacer"></span>
+    <button mat-button routerLink="/customers" routerLinkActive="active">Customer List</button>
+    <button mat-button routerLink="/modify-customer" routerLinkActive="active">Modify Customer</button>
+  </mat-toolbar>
+
+  <div class="app-container">
+    <h1>{{ title }}</h1>
+    <h2>{{ massageCourse }}</h2>
+
+    <!--router outlet to display routed components -->
+    <router-outlet></router-outlet>
+  </div>
 </body>
 </html>

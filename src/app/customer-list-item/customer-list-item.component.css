@@ -51,5 +51,22 @@ th {
 }
 
 .error {
-  color: red; /* Optional: Style for error messages */
+  color: rgb(186, 36, 36); /* Optional: Style for error messages */
+}
+
+
+.student-card {
+  margin: 20px;
+}
+
+.navigation-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.error-card {
+  background-color: #79241e;
+  color: white;
+  margin-top: 20px;
 }

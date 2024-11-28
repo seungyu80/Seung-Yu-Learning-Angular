@@ -1,29 +1,40 @@
 import { Component, OnInit } from '@angular/core';
 import { Customer } from '../models/customer';
 import { CustomerService } from '../services/customer.service';
+import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
 import {NgIf} from "@angular/common";
-import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
-import { HighlightOnFocusDirective } from '../directives/highlight-on-focus.directive';
 import {DisableButtonDirective} from "../directives/disable-button.directive";
+import { HighlightOnFocusDirective } from '../directives/highlight-on-focus.directive';
+import {MatCheckbox, MatCheckboxModule} from "@angular/material/checkbox";
+import {MatFormField, MatFormFieldModule, MatLabel} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+import {MatButtonModule} from "@angular/material/button";
 
 @Component({
   selector: 'app-modify-list-item',
   standalone: true,
   imports: [ 
-    NgIf,
     FormsModule,
+    NgIf,
     ReactiveFormsModule,
     HighlightOnFocusDirective,
-    DisableButtonDirective
+    DisableButtonDirective,
+    MatCheckbox,
+    MatLabel,
+    MatFormField,
+    MatFormFieldModule,
+    MatInputModule,
+    MatCheckboxModule,
+    MatButtonModule
    ],
   templateUrl: './modify-list-item.component.html',
   styleUrl: './modify-list-item.component.css'
 })
 
 export class ModifyListItemComponent implements OnInit {
-  customer: Customer | undefined;
   customerForm: FormGroup;
+  customer: Customer | undefined;
   error: string | null = null;
 
   constructor(
